@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: #BBBBBB;
+        }
+
+        #firstId{
+            color: #3E5A76;
+            margin-left: 10px;
+            margin-right: 5px;
+            font-size:20px;
+            font-family: "Arial Helvetica";
+            color: darkred;
+        }
+        h1{
+            text-align: center;
+            height: 60px;
+            background-color:darkkhaki;
+            color: #0066CC;
+        }
+        #add{
+            width: 60px;
+            height: 25px;
+            background-color:burlywood;
+            border-radius: 5px;
+            margin-left: 25px;
+        }
+        #task{
+            width:250px ;
+            height: 30px;
+            border: 1px solid black;
+            margin-bottom: 10px;
+            margin-left: 5px;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+<h1>To Do List</h1>
+<div id="firstId">Things To Do<input id="task"></div>
+
+<div><button id="add">Add</button></div>
+<br>
+<div id="todos"></div>
+
+<script src="resources/Scripts/ToDoList.js"></script>
+</body>
+</html>

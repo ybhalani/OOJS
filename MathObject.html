@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>(0, 150, 30, 20, -8, -200)</p>
+<button id="minId">Get The Minimum Value</button>
+<br><br>
+<p>(73277,83278,78278,876654,98263)</p>
+<button id="maxId">Get The Maximum Value</button>
+<br><br>
+
+<script>
+
+   document.write("<div>"+'Random Number'+"  "+ Math.random()+"</div>");//between 0 t0 1
+
+
+
+
+       document.getElementById('minId').addEventListener('click',function(){
+
+           document.getElementById("minId").innerHTML =
+                   Math.min(0, 150, 30, 20, -8, -200);
+
+       })
+
+   document.getElementById('maxId').addEventListener('click',function(){
+
+       document.getElementById("maxId").innerHTML =
+               Math.max(73277,83278,78278,876654,98263);
+      // document.write("document.getElementById('maxId').innerHTML ")
+
+   })
+
+</script>
+</body>
+</html>

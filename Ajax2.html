@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+
+
+
+
+<div class="wrapper">
+    <button>Click Me </button>   <!-- content will be shown on this button click -->
+    <div class="content"></div> <!-- content will be shown in this div -->
+</div>
+<br><br>
+<div class="wrapper">
+    <button id="button1">Click Me Too</button>   <!-- content will be shown on this button click -->
+    <div class="content1"></div> <!-- content will be shown in this div -->
+</div>
+<br>
+<h1 id="title"></h1>
+<hr>
+<div id="text"></div>
+<script>
+    $(document).ready(function(){
+    $('button').on('click', function(){
+        $.ajax('Resources/Data/ajax2.html', {
+            success: function(response){
+                $('.content').html(response);
+            },
+            type: 'GET',
+        });
+    });
+        //selected iteam display
+
+        $('#button1').on('click', function(){
+            $.ajax('Resources/Data/ajax2.html', {
+                success: function(response){
+                    $('.content1').html($(response).find('img, h2').fadeIn());
+                },
+                type: 'GET',
+            });
+        });
+    });
+
+    //javascript ajax call
+  var  variable = new XMLHttpRequest();//for new browser
+    var variable1 = new ActiveXObject("Microsoft.XMLHTTP");//old browser
+   function ajax_get(url.callback){
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                document.write('response:'+ xmlhttp.responseText);
+                try{
+                    var data = JSON.parse(xmlhttp.responseText);
+                }catch (err){
+                    document.write(err.message + " in"+ xmlhttp.responseText);
+                }
+                callback(data);
+            }
+        };
+        xmlhttp.open('GET',url,true);
+        xmlhttp.send();
+    }
+
+    ajax_get('Resources/Data/ajax3.html', function(data) {
+        document.getElementById("title").innerHTML = data["title"];
+
+        var html = "<h2>" + data["title"] + "</h2>";
+        html += "<h3>" + data["description"] + "</h3>";
+        html += "<ul>";
+        for (var i=0; i < data["articles"].length; i++) {
+            html += '<li><a href="' + data["articles"][i]["url"] + '">' + data["articles"][i]["title"] + "</a></li>";
+        }
+        html += "</ul>";
+        document.getElementById("text").innerHTML = html;
+    });
+
+</script>
+</body>
+</html>

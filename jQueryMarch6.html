@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Ajax</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="Resources/Scripts/jQueryMarch6.js"></script>
+<style>
+    #divLoadId{
+
+    }
+</style>
+
+</head>
+<body>
+<h1>jQuery Ajax</h1>
+<pre>.ajax()==get post web services.xml,json,html,text
+.load()==static html
+.get()==get calls
+.post()==post calls
+.getJSON()==only for json request and responce
+.getScript==to load javascript dynamically</pre>
+<h3>Load Method</h3>
+<p id="loadId"></p>
+<button id="loadBtnId">Load Content</button>
+<p>.ajax()</p>
+    <div id="divLoadId"></div>
+<button id="loadContent2">Load Content by Ajax Method2</button>
+<button id="loadContent3">Load Content by Ajax Method3</button>
+<button id="loadContent4">Load Content by Ajax Method4</button><br><br>
+
+<h3>Cross Domain Call</h3>
+<div id="crossAjexDivId"></div>
+<button type="button" id="crossAjexId">Get Cross Ajax</button>
+<h3>get json</h3>
+<button type="button" id="jsonBtnId">Get  geo json</button>
+<div id="geoJsonId"></div><p></p>
+<h3>Get Countries </h3>
+<table id="tableLoadId" border="1">
+    <thead>
+    <th>Country</th>
+    <th>Alternate_name</th>
+    <th>fifa_code</th>
+    <th>Group_id</th>
+    </thead>
+    <tbody>
+
+
+    </tbody>
+</table>
+<button id="loadJsonId">Load Countries</button>
+<h3>Sending The Data</h3>
+<p>First Name<input type="text" id="nameId"></p>
+<p>Age<input type="text" id="ageId"></p>
+<p>Hobbies<input type="text" id="hobbiesId"></p>
+<button type="button" id="submitAjaxId" >Submit The Form</button>
+<table id="submitTable" border="1">
+
+</table>
+</body>
+
+</html>

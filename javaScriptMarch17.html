@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>object oriented programming</title>
+</head>
+<body>
+
+
+
+<script>
+function Employee(name,age,gender){
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+}
+
+//constructor
+    var emp1 = new Employee('Emp1',25,'male');
+console.log("Object Constructor")
+    console.log( emp1);
+
+    //onj literal
+    var emp2 ={
+        name:'Emp2',
+        age:25,
+        gender:'male'
+    }
+console.log("object Literal ")
+console.log(emp2);
+</script>
+</body>
+</html>

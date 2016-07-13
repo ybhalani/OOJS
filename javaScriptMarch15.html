@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+<h1>Promise & Deferred</h1>
+<p>promises in js give us the ability to write asynchronous code in a parallel manner to synchronous code</p>
+<p>a promise represents a value that is not yet known</p>
+<p>a deferred represents work that is not yet finished</p>
+<p>A promise is a placeholder for a result which is initially unknown while a deferred represents the computation that results in the value.
+    Every deferred has a promise which functions as a proxy for the future result.
+    While a promise is a value returned by an asynchronous function,
+    a deferred can be resolved or rejected by it’s caller which separates the promise from the resolver.
+    The promise itself can be given to any number of consumers and each will observe the resolution independently
+    meanwhile the resolver / deferred can be given to any number of producers and the promise will be resolved by the one that first resolves it.
+    From a semantic perspective this means that instead of calling a function ( callback ),
+    we are able to return a value ( promise ).</p>
+
+
+
+<script>
+    //promises deferred success
+    //resolve means success
+    var dfd;
+    dfd = $.Deferred();
+    dfd
+            .then(function(x){
+        return x + 1;//x is 1
+    })
+    .then(function(x){
+        return x + 1; //x is 2
+    })
+            .then(function(x){
+                return x + 1;//x is 3
+            })
+            .then(function(x){
+               log("resolve" + x);//x is 4
+
+            });
+
+    dfd.resolve(1);
+    function  log(msg){
+        var p = document.createElement('p');
+        p.innerHTML = msg;
+        document.body.appendChild(p);
+    }
+
+
+    //promises and deferred
+    //reject means error
+    dfd = $.Deferred();
+    dfd
+            .then(null,function(x){
+                return x + 1;//2
+            })
+            .then(null,function(x){
+                return x + 1;//3
+            })
+            .then(null,function(x){
+                log('reject'+ x); //3
+                return x + 1;//4
+            })
+            .then(null,function(x){
+              try{
+                  throw new Error
+
+              }
+
+
+
+            });
+
+    //jquery  promises
+    // Promise to be filled with future value
+    var futureValue = new Promise();
+
+    // .then() will return a new promise
+    var anotherFutureValue = futureValue.then();
+
+    // Promise state handlers ( must be a function ).
+    // The returned value of the fulfilled / failed handler will be the value of the promise.
+    futureValue.then({
+
+        // Called if/when the promise is fulfilled
+        fulfilledHandler: function() {},
+
+        // Called if/when the promise fails
+        errorHandler: function() {},
+
+        // Called for progress events (not all implementations of promises have this)
+        progressHandler: function() {}
+    });
+
+</script>
+</body>
+</html>

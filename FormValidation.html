@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <script type="text/javascript" src="Resources/Scripts/validationform.js"></script>
+    <style>
+        .errorMsg,.bg-red-light{
+            display:inline-block;
+            color:#b0332d !important;
+            font-size:12px;
+            border-radius: 4px;
+            background-position: 5px center;
+            background-color: lavenderblush;
+            border: 1px solid lightpink;
+            padding:5px;
+            margin:0 3px;
+            font-weight:normal;
+            font-family:"Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+        }
+        .errorBorder{
+            border: 1px solid lightpink;
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+<h1>Registration Form</h1>
+<div id="errorMsgHolder" class="errorMsg"></div>
+<form method="post" action="Process.html" onsubmit="return validate(this);">
+    <table border="0" cellspacing="2" cellpadding="2">
+        <tr>
+            <td>First Name:</td>
+            <td><input type="text" name="FirstName" size="20"></td>
+        </tr>
+        <tr>
+            <td>Middle Initial:</td>
+            <td><input type="text" name="MidInit" size="2"></td>
+        </tr>
+        <tr>
+            <td> Last Name:</td>
+            <td><input type="text" name="LastName" size="20"></td>
+        </tr>
+        <tr>
+            <td>City: </td>
+            <td><input type="text" name="City" size="20"></td>
+        </tr>
+        <tr>
+            <td>State/Province: </td>
+            <td>
+                <select name="State">
+                    <option value="0">Please Choose...</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                    <option value="AB">Alberta</option>
+                    <option value="BC">British Columbia</option>
+                    <option value="MB">Manitoba</option>
+                    <option value="NB">New Brunswick</option>
+                    <option value="NF">Newfoundland</option>
+                    <option value="NS">Nova Scotia</option>
+                    <option value="ON">Ontario</option>
+                    <option value="PE">Prince Edward Island</option>
+                    <option value="QC">Quebec</option>
+                    <option value="SK">Saskatchewan</option>
+                </select>
+            </td>
+        </tr>
+        <tr valign="top">
+            <td>Country:</td>
+            <td>
+                <input type="radio" name="Country" value="USA"> United States<br>
+                <input type="radio" name="Country" value="CA"> Canada<br>
+                <input type="radio" name="Country" value="Other"> Other
+            </td>
+        </tr>
+        <tr>
+            <td>Zip: </td>
+            <td><input type="text" name="Zip" size="10"></td>
+        </tr>
+        <tr>
+            <td>Email: </td>
+            <td><input type="text" name="Email" size="30"></td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" name="Username" size="10"></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="Password1" size="10"></td>
+        </tr>
+        <tr>
+            <td>Repeat Password: </td>
+            <td><input type="password" name="Password2" size="10"></td>
+        </tr>
+        <tr valign="top">
+            <td>Comments: </td>
+            <td><textarea name="Comments" cols="30" rows="3"
+                          wrap="virtual"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="checkbox" name="Terms" value="checkbox">
+                I agree to the site terms. </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input name="submit" type="submit" value="Submit">
+                <input name="reset" type="reset" value="Reset Form">
+            </td>
+        </tr>
+    </table>
+    <script>
+        function validate(form){
+
+            var firstName = form.FirstName.value;
+            var midInit = form.MidInit.value;
+            var lastname = form.LastName.value;
+            var city = form.City.value;
+            var firstName = form.FirstName.value;
+            var zipCode = form.Zip.value;
+            var email = form.Email.value;
+            var userName = form.Username.value;
+            var password1 = form.Password1.value;
+            var password2 = form.Password2.value;
+            var Errors = [];
+        }
+
+
+
+
+
+    </script>
+
+    <script>
+        //to check the length of input values
+        function checkLength(text,min,max){
+            min = min || 1;
+            max = max || 1000;
+
+            if(text.length < min || text.length > max){
+                return false;
+            }
+            return true;
+        }
+        //to compare the values
+        function compareValues(val1,val2){
+         if(val1 > val2){
+             return -1;
+         }else if(val1 < val2 ){
+                return 1;
+            }else{
+                return 0;
+            }
+        }
+        //check email
+        function checkEmail(email){
+            if(!checkLength(email,6)){
+                return false;
+
+            }else if(email.indexOf("@")== -1){
+                return false;
+            }else if(email.indexOf(".")== -1){
+                return false;
+            }else if(email.lastIndexOf(".")< email.lastIndexOf("@")){
+                return false
+            }
+            return true;
+        }
+
+        //for radio buttons
+        function checkRadioArray(radioButtons){
+            for (var i = 0; i<radioButtons.length; i++){
+                if(radioButtons[i].checked){
+                    return true
+                }
+            }
+            return false;
+        }
+
+        //for checkbox
+        function checkCheckBox(cb){
+            return cb.checked;
+        }
+        //for select value in states
+
+        function checkSelect(select){
+            return (select.selectedIndex > 0);
+        }
+
+
+        //text area function
+        function checkTextArea(textArea,max){
+            var numChars,chopped,message;
+            if(!checkLength(textArea.value,0,max)){
+                numChars = textarea.value.length;
+                chopped = textArea.value.substr(0,max)
+                message = "You have Typed"+ numChars + "Characters.\n";
+                message += "The Limit is "+ max +".";
+                message +="Your Entry will be shortened to:\n\n" + chopped ;
+                alert(message);
+                textArea.value = chopped;
+            }
+
+        }
+
+    </script>
+</form>
+</body>
+</html>

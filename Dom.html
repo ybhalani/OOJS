@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ha>Dom Manipulation</ha>
+<table border="1">
+    <thead>
+    <tr>
+        <th>SNo</th>
+        <th>Technology</th>
+
+
+    </tr>
+    </thead>
+    <tbody id="bodyId" >
+    <tr>
+        <td>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div id="newId">
+    <button id="eventBtn" onclick="eventFun()">Get Data</button>
+</div>
+
+<h1 id="hId" on onclick="hfunc()">Click Me,I am a Heading</h1>
+<h2></h2>
+<h1 id="hId1" onclick="date()">Get The Date</h1>
+<script>
+    function eventFun(){
+    var techs=['HTML','CSS','JS','JQUERY'];
+    var newTech = techs.slice(1);
+    var allArray = ['HTML','CSS','JS','JQUERY','Angular','React','Node'];
+    var rows = "";
+    for(var i =0; i<allArray.length; i++ ){
+
+        rows+= "<tr><td>"+(i+1)+"</td>";
+        rows+= "<td>"+allArray[i]+"</td></tr>";
+
+    }
+    document.getElementById('bodyId').innerHTML = rows;
+    }
+
+
+    function hfunc(){
+       document.getElementById('hId').innerHTML = "I changed the heading";
+        document.getElementById('hId').style.color = 'red';
+        document.getElementById('hId').style.fontSize = '40px';
+    }
+
+
+    function date(){
+        document.getElementById('hId1').innerHTML=Date();
+    }
+
+</script>
+</body>
+</html>

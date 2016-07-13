@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="getTheCookie()">
+<p>FirstName:<input type="text" id="firstId"></p>
+<p>LastName:<input type="text" id="lastId"></p>
+<button type="button" onclick="setTheCookie()">Save</button>
+
+<script>
+    function setTheCookie(){
+        var fname = document.getElementById('firstId').value;
+        var lname = document.getElementById('lastId').value;
+        document.cookie = "UserFirstName = fname  ;expires=Wed,01 Feb 2017 00:00:00 GMT;"
+        document.cookie = "UserLastName =lname ;  expires=Wed,01 Feb 2017 00:00:00 GMT;"
+
+    }
+
+
+    function getTheCookie(){
+        if(document.cookie.length != 0){
+            var nameArray = document.cookie.split("=")
+            document.fname = nameArray[1];
+            document.getElementById('firstId').value = nameArray[1];
+
+           //var newArrays = document.cookie.split("=")
+            document.lname = nameArray[2];
+            document.getElementById('lastId').value = nameArray[2];
+       }
+    }
+</script>
+</body>
+</html>

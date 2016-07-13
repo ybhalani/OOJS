@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>try catch throw finally</title>
+</head>
+<body>
+<div class="someerr" id="errmsg"></div>
+<h3>Try Catch Finally Example</h3>
+<input type="text" id="inputId">
+<button type="button" id="btnsubmitId" onclick="errorfunc()">Submit</button>
+<h1 id="h1">Finally Block Execution</h1>
+<script>
+    function errorfunc(){
+        var message,x;
+        message = document.getElementById('errmsg');
+        message.innerHTML = '';
+        x = document.getElementById('inputId').value;
+        try{
+            if(x=='')throw "input is empty";
+            if(isNaN(x))throw 'input is not a number';
+            x= Number(x);
+            if(x<2000)throw 'input is below the range';
+            if(x>2010)throw 'input is above the range';
+        }
+        catch(err){
+            message.innerHTML = "Error Occured::" + err + '.';
+        }
+        finally {
+            document.getElementById('h1').innerHTML = "Its Done!!!";
+        }
+    }
+</script>
+</body>
+</html>

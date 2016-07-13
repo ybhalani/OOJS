@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p input{
+            width: 250px;
+            height: 20px;
+            border: 2px solid black;
+        }
+        p button{
+            margin-left: 80px;
+            color: black;
+            background-color: #b0332d;
+        }
+    </style>
+</head>
+<body>
+<h3>Javascript Car Object</h3>
+<div id="ulId">
+
+</div>
+<h3>Javascript Name Object</h3>
+<table id="tableId" border="1" cellpadding="5px">
+
+</table>
+<h3>Aaray Of Object Inside The Object </h3>
+<table id="tableId2" border="1" cellpadding="5px">
+
+</table>
+<div>
+    <form>
+        <p>Car Make:<input type="text"  id="makeId" data-name="make"></p>
+        <p>Car Model:<input type="text"  id="modelId" data-name="model" ></p>
+        <p>Car Year:<input type="text"  id="yearId" data-name="year"></p>
+        <p><button type="button"  id="submitBtn">Submit</button></p>
+    </form>
+</div>
+<table id="tabularId" border="1">
+
+</table>
+
+<script>
+
+var myCar = {
+    'make':'honda',
+    'model':'Accord',
+    'year':'2010'
+}
+    var change = "<li>Make = "+myCar.make+"</li>";
+    change += "<li>Model = "+myCar.model+"</li>";
+change += "<li>Year = "+myCar.year+"</li>";
+    document.getElementById('ulId').innerHTML = change;
+//myName object
+
+var myName = {
+    'Firstname':'Priyanka',
+    'LastName':'Dhyani',
+    'Number':'6166811749'
+}
+
+var change1 = "";
+
+    for(key in myName){
+      change1 += "<tr><td>"+key + "</td><td>"+myName[key]+"</td></tr>";
+    }
+document.getElementById('tableId').innerHTML = change1;
+//object3
+var myCity = {
+        Name:"Sfo",
+        Population:"53737",
+        Weather:"Cold",
+        SubCity:[{
+            Name:"Dublin",
+            Population:"73769",
+            Weather:"Warm"
+                 },
+            {
+            Name:"Pleasanton",
+            Population:"73769",
+            Weather:"Warm"
+            },
+            {
+            Name:"San Ramon",
+            Population:"73769",
+            Weather:"Warm"
+            }]
+    };
+     var goTo = "";
+    for(key in myCity) {
+        if (typeof myCity[key] != "object") {
+            goTo += "<tr><td>" + key + "</td><td>" + myCity[key] + "</td></tr>";
+        }else{
+            for(key1 in myCity[key]){
+                for(key2 in myCity[key][key1]) {
+                    goTo += "<tr><td>" + key2 + "</td><td>" + myCity[key][key1][key2] + "</td></tr>";
+                }
+            }
+        }
+
+    }
+document.getElementById('tableId2').innerHTML = goTo;
+
+
+
+//seeting localstorage from input value
+    document.getElementById('submitBtn').addEventListener('click',function(){
+        e.preventDefault();
+        var input = document.getElementsByIdTagName('input');
+        for(var i = 0; i<input.length; i++){
+            var element = input[i]
+            localStorage[elememt.getAttribute('data-name')] = element.value
+        }
+    });
+
+
+var newStore ="";
+for(key in localStorage) {
+    newStore += "<tr><td>" + key + "</td><td>" + localStorage[key] + "</td></tr>";
+
+}
+    document.getElementById('tabularId').innerHTML = newStore;
+</script>
+</body>
+</html>

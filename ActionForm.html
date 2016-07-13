@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link href="Resources/Style/Login.css" rel="stylesheet" type="tex>t/css">
+</head>
+<body>
+<h1> Create an Account</h1>
+<div class="logBox">
+    <form action="Semantic.html"method="post" target="_blank" accept-charset="UTF-8"
+    autocomplete="off"    autofocus>
+    <h2>Login Form</h2>
+    <div class="input"> <label> First Name:</label><input type="text" id="firstText" name="userFirstname"></div>
+
+    <div class="input">  <label> Last Name:</label><input type="text" id="lastText" name="userLastname"></div>
+
+    <div class="input"><label>Email:</label><input type="email" id="emailTxt" name="userEmail"></div>
+
+    <div class="input"> <label>Password:</label><input type="password" id="passwordTxt" name="userPassword"></div>
+    <div class="input"><label>Date of Birth:</label><input type="text" id="dob" name="userDob"></div>
+    <div class="input">  <label> City:</label><input type="text" id="cityText" name="userCity"></div>
+    <div id ="inputId" class="input">  <label> State:</label><input type="text" id="stateText" name="userState"></div>
+    <div class="input">  <label> Country:</label><select name="Country" id="countryText" name="userCountry">
+        <option value="India">India</option>
+        <option value="usa">United States Of America</option>
+        <option value="uk">United Kingdom</option>
+        <option value="japan">Japan</option>
+        <option value="china">China</option>
+        <option value="france">France</option>
+        <option value="brazil">Brazil</option>
+        <option value="mexico">Mexico</option>
+        <option value="australia">Australia</option>
+        <option value="germany">Germany</option>
+    </select></div>
+
+
+    <div class="input"> <label><input type="checkbox" id="cbox1" value="first_checkbox"> I agree to the Terms of Service</label></div>
+    <input type="submit" id="submitBtn" value="Submit">
+    <input type="reset" id="resetBtn" value="Reset">
+
+    </form>
+
+</div>
+<div id="div4" style="width: 100px; height: 100px; border: 1px solid darkblue"  onclick="alert('div clicked')"> I am A Div
+    <button id="btn4" onclick="alert('button clicked')">Clicked</button>
+</div>
+<script>
+   /* function stopSubmit(event){
+       document.getElementsByTagName('form').onsubmit, event.preventDefault();
+    }*/
+   ///prevent default method
+   document.getElementById("submitBtn").addEventListener("click", function(event){
+       event.preventDefault()
+       location.href = 'DropBox.html';
+   });
+
+          // StopPropragation
+   document.getElementById("div4").addEventListener("click", function(event){
+
+      // event.stopPropagation()
+
+   });
+
+   document.getElementById("btn4").addEventListener("click", function(event){
+
+       event.stopPropagation();
+
+   });
+</script>
+</body>
+</html>

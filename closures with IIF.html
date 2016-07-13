@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a id="links"></a>
+
+<script>
+     for(var i=0; i<10; i++){
+
+     console.log("i value is" + i)
+     setTimeout(function(){
+     console.log("i value is" + i)
+     })
+     };
+
+     for(var i=0; i<10; i++) {
+     console.log("i value is" + i);
+     setTimeout(function(n){
+     return function() {
+     console.log("i value is" + n)
+     }}(i),2000)
+     };
+
+        for(var i=1,link; i<6; i++) {
+            link = document.createElement('a');
+            link.innerHTML = "link no"+ i;
+            link.onclick = function(originalvalue){
+                return function(){
+                    console.log(originalvalue +"==link clicked===");
+                }
+            }(i);
+            document.getElementById("links").appendChild(link);
+        }
+    }
+    addLink();
+</script>
+
+
+for(var i = 0; i < 3; i++)f {
+setTimeout(function(i) {
+return function()
+console.log(i); },
+0);
+}
+
+</body>
+</html>

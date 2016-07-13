@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table border="1">
+         <thead>
+             <tr>
+                <th>SNo</th>
+                 <th>Technology</th>
+
+
+             </tr>
+          </thead>
+    <tbody id="bodyId" >
+    <tr>
+        <td>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    var linebr ='<br>';
+    var techs=['HTML','CSS','JS','JQUERY'];
+    document.write("<div>"+techs+"</div>");
+    var techs1 = new Array('Angular','Node','Bootstrap');
+    document.write("<div>"+techs1+"</div>");
+    var newArr = [28];
+    document.write("<div>"+newArr+"</div>");
+    var newArr1 = new Array('46');
+    document.write("<div>"+newArr1+"</div>");
+    document.write("the 1 index of techs is "+techs[1]);
+    //associative arrays
+    arr1 =[20,30,40];
+   // arry2 =['color':40, 'color2':50];//associative array ..its not possible in javascript
+    obj1 = {'color':40, 'color2':50};// object literal notation==json
+var obj2 ={};//first we need to put the literals then
+    obj2['name']='me' ;//accociative array we can support by javascript object
+    obj2['number'] = '233';
+  document.write(linebr);
+
+
+        //  ARRAY METHOD
+    var con = ["India","Us","Uk","China"];
+          con.push('europe'); //push
+    document.write("<div>" +" Arraya After push Method == "+con+"</div>");
+
+              con.pop();  // pop
+    document.write("<div>" +" Arraya After pop Method == "+con+"</div>");
+
+
+               var iN  = con.indexOf('Us'); //indexOf
+          document.write("<div>" +" Index Of Us Is == "+iN+"</div>");
+
+           var joinNew = con.join("*");   //join method
+        document.write("<div>" +" join method == "+joinNew+"</div>");
+       document.write("Check == " + con);
+               var sum =  con.slice(2);   ///slice//from to index to the index you want like(1,3).it will not remove from the boriginal array
+
+    document.write("<div>" +"Sliced Array is " + sum+"</div>");
+    document.write("Check == " + con);
+              //splice(add and remove)//it will remove and  add in the original array
+    var newer =['AAA','BBB','CCC','DDD','EEE'];
+
+    document.write("<div>" +"Spliced Array is (delete) "+ newer.splice(4,1) +"</div>");
+    document.write(newer);
+    document.write("<div>" +"Spliced Array is (add) " + newer.splice(4,0,"Eee")+"</div>")//not coming Eee
+    document.write("after add"+newer);
+
+    document.write(linebr);
+    //looping through the array
+    //looping through the array
+
+    var techs=['HTML','CSS','JS','JQUERY'];
+    var newTech = techs.slice(1);
+    var allArray = ['HTML','CSS','JS','JQUERY','Angular','React','Node'];
+    var rows = "";
+for(var i =0; i<allArray.length; i++ ){
+
+ rows+= "<tr><td>"+(i+1)+"</td>";
+    rows+= "<td>"+allArray[i]+"</td></tr>";
+
+}
+document.getElementById('bodyId').innerHTML = rows;
+
+</script>
+</body>
+</html>

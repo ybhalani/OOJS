@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        td,th {
+            font-family: monospace;
+            padding: 4px;
+            background-color: #ccc;
+        }
+
+        label {
+            vertical-align: top;
+        }
+
+        #PlayArea {
+            border: 1px dotted blue;
+            padding: 6px;
+            background-color: #ccc;
+            margin-right: 50%;
+        }
+
+        #items_table {
+            border: 1px dotted blue;
+            padding: 6px;
+            margin-top: 12px;
+            margin-right: 50%;
+        }
+
+        #items_table h2 {
+            font-size: 18px;
+            margin-top: 0px;
+            font-family: sans-serif;
+        }
+
+    </style>
+</head>
+<body onload="doShowAll()"><h1>Enter Items And Quantity</h1>
+<form name=ShoppingList>
+
+    <div id="PlayArea">
+        <table>
+            <tr>
+
+                <td><b>Item:</b><input type=text name=name id="firstid"></td>
+                <td><b>Quantity:</b><input type=text name=data id="lastid"></td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <input type=button value="Save"   onclick="SaveItem()">
+                    <input type=button value="Modify" onclick="ModifyItem()">
+                    <input type=button value="Remove" onclick="RemoveItem()">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="items_table">
+        <h2>Shopping List</h2>
+        <table id=list></table>
+        <p>
+            <label><input type=button value="Clear" onclick="ClearAll()">
+                </label>
+        </p>
+    </div>
+</form>
+
+
+<script>
+
+    function doShowAll() {
+
+          var key = "";
+             var list = "<tr><th>Name</th><th>Value</th></tr>\n";
+            var i = 0;
+            for (i = 0; i <= localStorage.length - 1; i++) {
+                key = localStorage.key(i);
+                list += "<tr><td>" + key + "</td>\n<td>"
+                        + localStorage.getItem(key) + "</td></tr>\n";
+            }
+             document.getElementById('list').innerHTML = list;
+    }
+
+    // key/value pair  and calling the localstorage.setItem method
+    function SaveItem() {
+        var name = document.getElementById('firstid').value;
+        var data = document.getElementById('lastid').value;
+        localStorage.setItem(name, data);
+        doShowAll();
+
+    }
+    //To fetch an existing key/value pair we will use the .getItem method
+    function ModifyItem() {
+        var name = document.getElementById('firstid').value;
+        document.getElementById('lastid').value = localStorage.getItem(name);
+        doShowAll();
+    }
+// .removeItem method to delete from the storage.
+    function RemoveItem() {
+        var name = document.getElementById('firstid').value;
+        document.getElementById('lastid').value = localStorage.removeItem(name);
+        doShowAll();
+
+    }
+//.clear to clear all storage
+    function ClearAll() {
+        localStorage.clear();
+        doShowAll();
+    }
+
+</script>
+</body>
+</html>

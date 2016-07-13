@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, .tdclass {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        #bdyId{
+            margin-left: 100px;
+        }
+        h1{
+            text-align: center;
+        }
+        td {
+            padding: 10px;
+        }
+        .dispId input{
+            border-radius: 15px;
+            text-align: center;
+        }
+        #date_time{
+            text-align: center;
+            font-size: large;
+            color: black;
+            background-color: #FF9492;
+        }
+    </style>
+    <script type="text/javascript" src="Resources/Scripts/runningClock.js"></script>
+</head>
+<body>
+<h1>Date Object</h1>
+<p id="date_time"></p>
+<h3>Days To Sing HappyBirthday!!</h3>
+<table >
+    <tr>
+        <td class="tdclass">Millisecond Difference</td>
+        <td class="tdclass"><input type="text" id="did"></td>
+
+    </tr>
+    <tr>
+        <td class="tdclass">Day Difference</td>
+        <td class="tdclass"><input type="text" id="did1"></td>
+
+    </tr>
+    <tr>
+        <td class="tdclass">Days rounded</td>
+        <td class="tdclass"><input type="text" id="did2"></td>
+    </tr>
+<tr><td colspan="2" align="center" class="dispId"><input type="button"value="Get Days Until Your Birthday" id="bd2" onclick="birthDay()"> </td></tr>
+</table>
+<div style="height: 50px">
+</div>
+
+<h3>My BirthDate Information</h3>
+<table >
+    <tr>
+        <td class="tdclass">The Month Value(getMonth)</td>
+        <td class="tdclass"><input type="text" id="Id1"></td>
+
+    </tr>
+    <tr>
+        <td class="tdclass">The Day Value(getDate)</td>
+        <td class="tdclass"><input type="text" id="Id2"></td>
+
+    </tr>
+    <tr>
+        <td class="tdclass">The Day Of The Week(getDay)</td>
+        <td class="tdclass"><input type="text" id="Id3"></td>
+    </tr>
+    <tr>
+        <td class="tdclass">The Year(getFullYear)</td>
+        <td class="tdclass"><input type="text" id="Id4"></td>
+
+    </tr>
+    <tr>
+        <td class="tdclass">Millisecond(getTime)</td>
+        <td class="tdclass"><input type="text" id="Id5"></td>
+    </tr>
+    <tr><td colspan="2" align="center" class="dispId"><input type="button" value="Display Information" id="displayId" onclick="getDateInfo()"></td></tr>
+</table>
+<script>
+
+    function birthDay(){
+        day = 1000*60*60*24
+        var today = new Date();
+        var bday = new Date(2016,9,29);
+        document.getElementById('did').value = bday.getTime()-today.getTime();
+        document.getElementById('did1').value= bday.getDate()-today.getDate();
+        daysRound = document.getElementById('did1').value;
+        document.getElementById('did2').value = Math.round(daysRound);
+
+
+
+    };
+    function getDateInfo(){
+        var d = new Date(1989,9,29);
+        document.getElementById('Id1').value = d.getMonth();
+        document.getElementById('Id2').value = d.getDate();
+        document.getElementById('Id3').value = d.getDay();
+        document.getElementById('Id4').value = d.getFullYear();
+        document.getElementById('Id5').value = d.getTime();
+
+        localStorage.setItem('Month', d.getMonth());
+        localStorage.setItem('date', d.getDate());
+        localStorage.setItem('Day', d.getDay());
+        localStorage.setItem('FullYear', d.getFullYear());
+        localStorage.setItem('Time', d.getTime());
+
+    };
+    function load(){
+        localStorage.getItem('Month');
+        localStorage.getItem('Date');
+        localStorage.getItem('day');
+        localStorage.getItem('FullYear');
+        localStorage.getItem('Time');
+    };
+
+</script>
+<script type="text/javascript">window.onload = date_time('date_time'), load();</script>
+</body>
+</html>

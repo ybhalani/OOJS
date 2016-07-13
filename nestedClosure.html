@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="processNested()">
+
+
+<script>
+    function outerFunc(base){
+        var punc = "!";
+        return function(ext){
+
+            return base + ext + punc;
+        }
+    }
+
+    function processNested(){
+
+        var baseString = outerFunc("Hello");
+
+        var newString = baseString("world");
+        alert(newString);
+    }
+
+
+
+</script>
+</body>
+</html>

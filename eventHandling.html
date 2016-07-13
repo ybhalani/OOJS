@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Event Bubbling And Event Capturing</h1>
+
+<div onclick="div()">I am A Div outside the button
+    <br>
+    <button onclick="btn()">Click</button>
+</div>
+<script>
+    //event bubbling
+function btn(){
+   alert('button clicked.event bubbling');
+}
+function div(){
+alert('div clicked.event bubbling');
+}
+</script>
+</body>
+</html>

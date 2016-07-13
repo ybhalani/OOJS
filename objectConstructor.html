@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //without prototype
+  /*  function MyObject(){
+        //empty constructor function.
+    }
+   var myobjInstance1 = new MyObject();// myobjInstance is firstinstance of cons fun
+    MyObject.dosomething = function(){  //adding method to constructor function.
+        alert('i am object specific')
+    };
+    var myobjInstance2 = new MyObject();// myobjInstance is second instance of cons fun
+    myobjInstance2.dosomething = function(){
+        alert('i am instance specific')
+    };
+    MyObject.dosomething();//consfun call
+    myobjInstance2.dosomething();//instance 2 call
+    myobjInstance1.dosomething()*/;//instance that creted befor method adding in confun
+</script>
+<script>
+    //with prototype
+    /*function MyObject(){
+        //empty constructor function.
+    }
+    var myobjInstance1 = new MyObject();// myobjInstance is firstinstance of cons fun
+    MyObject.dosomething = function(){  //adding method to constructor function.
+        alert('i am object specific')
+    };
+    MyObject.prototype.dosomething = MyObject.dosomething();
+    var myobjInstance2 = new MyObject();// myobjInstance is second instance of cons fun
+    myobjInstance2.dosomething = function(){
+        alert('i am instance specific')
+    };
+    MyObject.dosomething();//consfun call
+    myobjInstance2.dosomething();//instance 2 call
+    myobjInstance1.dosomething();//instance that creted befor method adding in confun*/
+</script>
+<script>
+    //overriding preexisting methods
+    var sm = new Date();
+    Date.prototype.getTimeStamp  = function() {
+       return Date().split("(")[1].split(")")[0];
+    }
+    console.log(sm.getTimeStamp());
+
+
+    var arr1 = [1,2,3,4,5,6,];
+    Array.prototype.alphaNumericSort = function(){
+        return Array.sort().reverse();
+    }
+    console.log(arr1.alphaNumericSort());
+</script>
+
+
+</body>
+</html>

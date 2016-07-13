@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>object oriented javascript</title>
+</head>
+<body>
+<p>if we want multiple instance of the object
+    where each instance can be changed during the lifetime of the script will go for object constructor will go for the
+    object constructor function</p>
+<p>if we want a single object will go for literal notation.</p>
+<p>if we want to do some initial work before the object is created will go for object co
+constructor only</p>
+<script>
+    //literal notation
+var myObj = {
+    name:'priyanka',
+    num:220
+}
+   //new keyword
+    var employee = new Object();
+    employee.fname= 'joe';
+    employee.lname = 'joelname';
+    employee.age = 34;
+    //object constructor
+
+    function Person(){
+        this.name = 'Jack';
+        this.age = 22;
+        this.lname = 'In The Box'
+    };
+var person1 = new Person();
+    document.write((person1.name + "<br>"));
+    document.write((person1.age+ "<br>"));
+    document.write((person1.lname+ "<br>"));
+
+    //constructor version
+    function myObject(){
+        this.iAm = 'an Object';
+        this.whatAmI = function(){
+            alert("i am " + iAm);
+        };
+    }
+
+    //literal version
+    var myObject ={
+        iAm:'an object',
+        whatAmI:function(){
+            alert("i am" + iAm);
+        }
+    };
+
+//another example
+    var dartFrog = function(name,color,poisonous){
+        this.name= name;
+        this.color= color;
+        this.poisonous= poisonous;
+        this.jump =function(){
+            alert("jump");
+        };
+        this.sing=function(){
+            alert("croak");
+        }
+    }
+var yellowFrog = new dartFrog();
+    var greenFrog = new dartFrog();
+    var blueFrog - new dartFrog();
+</script>
+</body>
+</html>

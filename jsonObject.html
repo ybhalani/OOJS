@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="tableObjId" border="1"></table>
+<form>
+   <p> <label>Car Make</label><input type="text" id="carMake" data-Property="make"></p>
+    <p> <label>Car Model</label><input type="text" id="carModel" data-Property="model"></p>
+    <p> <label>Car Year</label><input type="text" id="carYear" data-Property="year"></p>
+    <button type="submit" id="btnCreateId">Submit Car Info</button>
+</form>
+<h3><span>Added Cars</span>
+
+</h3>
+<table id="tableId" border="1"></table>
+
+
+
+<script>
+    document.getElementById("btnCreateId").addEventListener('click',function(){
+       // e.preventDefault;
+        var inputs = document.getElementsByTagName("input");
+        for(i=0; i<inputs.length; i++) {
+            var elem = inputs[i]
+            localStorage[elem.getAttribute('data-property')] = elem.value;
+
+        }
+    });
+    var data = '';
+    for( key in localStorage){
+        data +="<tr><td>" + key +"</td><td>"  + localStorage[key] + "</td></tr>"
+    }
+    document.getElementById("tableId").innerHTML = data;
+
+</script>
+
+<script>
+    var myCar = [{
+        'Make':"Honda",
+        'Model':"Accord",
+        'Year':"2010",
+        'DriversInfo':[{
+            'Name':'Driver1',
+            'Age': 30},
+            {
+                'Name':'Driver2',
+                'Age': 40},
+            {
+                'Name':'Driver3',
+                'Age': 50}]
+    },{
+        'Make':"Toyoto",
+        'Model':"Camery",
+        'Year':"2016",
+        'DriversInfo':[{
+            'Name':'Driver11',
+            'Age': 30},
+            {
+                'Name':'Driver20',
+                'Age': 40},
+            {
+                'Name':'Driver30',
+                'Age': 50}]
+    },{
+        'Make':"Audi",
+        'Model':"Q5",
+        'Year':"2016",
+        'DriversInfo':[{
+            'Name':'Driver11',
+            'Age': 30},
+            {
+                'Name':'Driver22',
+                'Age': 40},
+            {
+                'Name':'Driver33',
+                'Age': 50}]
+    }];
+    var newKey = '';
+    for( i=0; i<myCar.length; i++) {
+        for (key in myCar[i]) {
+            if (typeof myCar[i][key] != "object") {
+                newKey +="<tr><td>" + key +"</td><td>"  + myCar[i][key] + "</td></tr>"
+            }
+            else {
+                for (key1 in myCar[i][key]) {
+                    for (key2 in myCar[i][key][key1][i]) {
+                        newKey += "<tr><td>" + key1 + "</td><td>" + myCar[i][key][key1][key2] + "</td></tr>"
+                    }
+                }
+            }
+        }
+    }
+    document.getElementById('tableObjId').innerHTML = newKey;
+</script>
+</body>
+</html>

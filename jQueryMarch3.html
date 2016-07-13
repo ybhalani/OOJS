@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQUERY</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="Resources/Scripts/jQueryMarch3.js"></script>
+    <style>
+        h2{
+            text-align: center;
+        }
+        h3, p{
+            margin-left: 15px;
+        }
+        #keyupId,#keydownId,#keypressId{
+            color: #0066CC;
+        }
+        .eventClass,.eventClass1{
+            background-color: #b0332d;
+        }
+    </style>
+</head>
+<body>
+<h2>JQuery Events</h2>
+<h3>Checking The Enter Key Is Pressed?</h3>
+<p>TextBox:<input type="text" id="textInput" ></p>
+<br><br><br>
+<h3>KeyPress events</h3>
+<p>1.keyup()Message:</p>
+<p id="keyupId"></p>
+<p>2.keydown()Message:</p>
+<p id="keydownId"></p>
+<p>3.keypress()Message:</p>
+<p id="keypressId"></p>
+<ul id="eventId" class="eventId">
+    <li>Plain</li>
+    <li class="eventClass">Special<button type="button">I am special</button> </li>
+    <li>Plain</li>
+</ul>
+
+<ul id="eventId1" class="eventId1">
+    <li>Plain</li>
+    <li class="eventClass1">Special<button type="button">I am special</button> </li>
+    <li>Plain</li>
+</ul>
+</body>
+</html>

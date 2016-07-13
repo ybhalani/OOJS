@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+<div id="linkId"> Because closures have access to the updated values of the outer function’s variables,
+    they can also lead to bugs when the outer function’s variable changes with a for loop. </div>
+<script>
+
+    //closure add example
+   var recheck="<br>";
+
+    function addition(x){
+        return function(y){
+            return function (z){
+                return x + y;
+            }
+
+        }
+    }
+    var add1 = addition(10);//x
+    var add2 = addition(20);//y
+    var add3 = addition(20);//z
+
+    document.write("Number one is :"+ add1(5));
+   document.write(recheck);
+    document.write("Number two is :"+ add2(5));
+   document.write(recheck);
+   //closure example
+
+    function mull(x){
+        return function (y) {
+            return function (z){
+                return x*y*z;
+            };
+        };
+    }
+
+    var add1 = mull(2);//x
+     var add2= add1(3);//y
+    var add3 = document.write("mull is"+ add2(4));
+
+//other way document.write("mull is"+ mull(2)(3)(4));
+
+
+
+    //student closure
+    function studentId(){
+        var stId = 100;
+
+        return{
+            getId: function(){
+                return stId;
+            },
+            setId: function(newId){
+                stId = newId;
+            }
+        }
+    }
+
+    var newerId = studentId();
+   document.write("student get original id is :"+ newerId.getId());
+   document.write(recheck);
+   document.write("student set another id is :"+newerId.setId(200));
+   document.write(recheck);
+   document.write("student get another id is :"+ newerId.getId());
+   document.write(recheck);
+    document.write(recheck);
+    document.write(recheck);
+
+    //closur example 3
+
+    function addLink(){
+        for (var i= 0,link; i<6; i++){
+            link = document.createElement("a");
+            link.innerHTML = "Link" + i + ","+" ";
+            link.onclick= function(e){
+                alert(i);
+              //  event.stopImmediatePropagation();
+            };
+            document.body.appendChild(link);
+        }
+
+    }
+    window.onload = addLink;
+    //
+
+
+    //closure
+    function celebrityName (firstName) {
+        var nameIntro = "This celebrity is ";
+        function lastName (theLastName) {
+            return nameIntro + firstName + " " + theLastName;
+        }
+        return lastName;
+    }
+    var mjName = celebrityName("Michael");
+  document.write(mjName("Jackson"));
+
+    //celebrity id creator
+/*
+    function celebrityIdCreator(theCelebrities){
+        var i;
+        var uniqueId= 100;
+        for(i=0;i<theCelebrities.length;i++){
+            theCelebrities[i]['id'] = function(){
+                return uniqueId + i;
+            }
+        }
+        return theCelebrities
+    }
+var actionCeleb = [{name:"Abc",id:0},{name:"Bcd",id:0},{name:"Cbc",id:0}];
+    var createdForActionCelebs = celebrityIdCreator(actionCeleb);
+    var stalloneID =createdForActionCelebs[0];
+    console.log(stalloneID.id());
+
+    //
+
+    function celebrityIDCreator (theCelebrities) {
+        var i;
+        var uniqueID = 100;
+        for (i = 0; i < theCelebrities.length; i++) {
+            theCelebrities[i]["id"] = function (j)  { // the j parametric variable is the i passed in on invocation of this IIFE​
+                return function () {
+                    return uniqueID + j; // each iteration of the for loop passes the current value of i into this IIFE and it saves the correct value to the array​
+                } () // BY adding () at the end of this function, we are executing it immediately and returning just the value of uniqueID + j, instead of returning a function.​
+            } (i); // immediately invoke the function passing the i variable as a parameter​
+        }
+​
+    return theCelebrities;
+    }
+    ​
+    ​var actionCelebs = [{name:"Stallone", id:0}, {name:"Cruise", id:0}, {name:"Willis", id:0}];
+    ​
+    ​var createIdForActionCelebs = celebrityIDCreator (actionCelebs);
+    ​
+    ​var stalloneID = createIdForActionCelebs [0];
+    console.log(stalloneID.id); // 100​
+    ​
+    ​var cruiseID = createIdForActionCelebs [1]; console.log(cruiseID.id); // 101*/
+</script>
+</body>
+</html>

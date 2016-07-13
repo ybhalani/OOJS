@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="employeeFirstId"></p>
+<p id="employeeSecondId"></p>
+
+
+<script>
+      // nameSpacing Example
+     //Employee 1
+
+     var employee = employee ||{};
+     employee.first = employee.first || {};
+
+     employee.first.customer = function(fname,lname){
+     this.fname = fname;
+     this.lname = lname;
+
+     this.getFullName = function(){
+     return this.fname + " " + this.lname
+     }
+     return this;
+     }
+
+     document.getElementById('employeeFirstId').innerHTML = employee.first.customer('John',"Dough").getFullName();
+</script>
+<script>
+     // employee 2
+     var employee = employee ||{};
+     employee.second = employee.second ||{};
+     employee.second.customer=function (fname,middleName,lname){
+     this.fname = fname;
+     this.middleName = middleName;
+     this.lname = lname;
+     this.getFullName = function(){
+     return this.fname + " " + this.middleName + " " + this.lname
+     }
+     return this;
+
+     }
+     document.getElementById('employeeSecondId').innerHTML = employee.second.customer('John',"T","Dough").getFullName();
+
+</script>
+
+<script>
+    function ab(){
+        var name= name;
+    }
+
+    var bd = new ab('someName');
+  alert(bd.name);
+</script>
+<script>
+    //inheritance
+    var Company = function(){//first cons func
+        this.name = name;
+    }
+    Company.prototype.getName = function(){
+        return this.name;
+    }
+
+    var PermanentCompany = function(turnover){//second constructor fun
+        this.turnover = turnover;
+    }
+
+
+
+
+</script>
+</body>
+</html>

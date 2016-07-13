@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="Resources/Scripts/jQueryMarch5.js"></script>
+    <style>
+        #creditformId{
+            border: 1px solid black;
+            width: 800px;
+            height: 120px;
+        }
+        #creditformBtnId{
+            background-color:darkblue;
+            color: white;
+            font-size: 20px;
+            width: 60px;
+            height: 30px;
+        }
+        p.showFormClass{
+margin-top: 20px;
+            display: inline-block;
+        }
+        #showFormId,#transferCreditId{
+            display: none;
+            border: 1px solid black;
+        }
+        .requiredValidation{
+        }
+    </style>
+</head>
+<body>
+<h1>jQuery Effects</h1>
+<ul>
+    <li>Show</li>
+    <li>Hide</li>
+    <li>Toggle</li>
+    <li>Slideup</li>
+    <li>Slidedown</li>
+    <li>SlideToggle</li>
+    <li>FadeIn</li>
+    <li>FadeOut</li>
+    <li>FadeToggle</li>
+    <li>FadeTo</li>
+    <li>animate</li>
+</ul>
+<button id='fade1'>Click Here for Fade method</button><br><br>
+<div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+<div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+<div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+
+<form id="creditformId">
+   <p class="showFormClass">Payment: <input type="checkbox" name="check1" value="card" id="creditCardBtn"> Credit Card</p>
+    <p class="showFormClass"> <input type="checkbox" name="check2" value="wire" id="wireBtnId"> Wire Transfer</p>
+      <button type="button" id="creditformBtnId">Buy!</button>
+</form><br><br>
+<form id="showFormId">
+   <p >Card Number <input type="number" id="numberCardId"></p>
+    <p>Expiration <input type="date" id="numberCardExpId"></p>
+    <p>3 Digit Security Number <input type="number" id="numberCardDigitId"></p>
+</form>
+<p id="transferCreditId">Transfer the amount to: reg. 9570, account 0009286322 (in Denmark)</p>
+<h2>jQuery form validation</h2>
+<form>
+    <p>First Name<input type="text" id="validatefname"> </p>
+    <p>Last Name<input type="text" id="validatelname"> </p>
+    <p>Email<input type="text" id="validateEmail"> </p>
+    <p>Password<input type="text" id="validatePassword"> </p>
+    <button type="button" id="validateSubmitBtn">Submit</button>
+</form>
+</body>
+</html>

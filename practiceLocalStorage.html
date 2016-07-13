@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Priyanka's Local Storage</title>
+    <style>#divID{
+        width:600px;
+        height: 300px;
+        border: 3px solid blue;
+        margin-top: 25px;
+        margin-left: 10px;;
+    }
+
+    </style>
+</head>
+<body>
+<p>Title<input type="text" id="tId"></p>
+<p>Description<input type="text" id="dId"></p>
+
+<button type="button" id="btnID">Save</button>
+<button type="button">Clear</button>
+<div id="divID">
+</div>
+
+<script>
+function main(){
+    var button = document.getElementById('btnID');
+    button.addEventListener('click',add);
+    display();
+}
+   function add(){
+       title = document.getElementById('tId').value;
+       dec = document.getElementById('dId').value;
+        localStorage.setItem(title,dec);
+
+        display();
+        document.getElementById('tId').value = "";
+        document.getElementById('dId').value = "";
+    }
+
+    //to dispplay
+    function display(){
+        var divs =  document.getElementById('divID');
+        divs.innerHTML = "";
+         for(var i = 0; i<localStorage.length; i++){
+              a = localStorage.key[i];
+              b = localStorage.getItem(a);
+                divs.innerHTML +=  a +" = "+ b +"<br>";
+       }
+        //var t2 = localStorage.getItem(title);
+       // divs.innerHTML = "Class Name is:"+" "+ title +"<br>" + " subclass is:" + " "+dec;
+    }
+
+
+
+window.addEventListener("load",main);
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="getCookie()">
+<h1>Cookie Example</h1>
+<select id="select1" onchange="colorCookie()">
+    <option value="Select Color">Select Color</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+</select>
+
+<script>
+   // window.onload="getCookie()";
+   // var d = new Date("2016-06-25");
+
+    function colorCookie(){
+
+        var color = document.getElementById('select1').value;
+        if(color!="Select Color"){
+           document.bgColor = color;
+            document.cookie = "selected color ="+ color + ";  expires=Wed,01 Feb 2017 00:00:00 GMT;";
+        }
+    }
+    function getCookie(){
+        if(document.cookie.length != 0){
+            var colorArray = document.cookie.split("=")
+            document.bgColor = colorArray[1];
+            document.getElementById('select1').value = colorArray[1];
+
+
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <p>This is a simple example of how jQuery forwarding works in promise resolutions and rejections.</p>
+    <p>This example is forked from <a href="http://jsfiddle.net/briancavalier/4canN/">Brian Cavalier's example</a> of when.js promise forwarding.</p>
+</div>
+<script>
+    var dfd;
+
+    dfd = $.Deferred();
+
+    // Resolved promises chain and forward values to next promise
+    // The first promise, d.promise, will resolve with the value passed
+    // to d.resolve() below.
+    // Each call to .then() returns a new promise that will resolve
+    // with the return value of the previous handler.  This creates a
+    // promise "pipeline".
+    dfd
+            .then(function(x) {
+                // x will be the value passed to d.reject() below
+                // and returns a *new promise* for x + 1
+                return x + 1;
+            })
+            .then(function(x) {
+                // x === 2
+                // This handler receives the return value of the
+                // previous handler.
+                return x + 1;
+            })
+            .then(function(x) {
+                // x === 3
+                // This handler receives the return value of the
+                // previous handler.
+                return x + 1;
+            })
+            .then(function(x) {
+                // x === 4
+                // This handler receives the return value of the
+                // previous handler.
+                log('resolve ' + x);
+            });
+
+    dfd.resolve(1);
+
+    // Thrown errors are not propogated by .then()
+    dfd = $.Deferred();
+
+    dfd
+            .then(null, function(x) {
+                return x + 1; // 2
+            })
+            .then(null, function(x) {
+                return x + 1; // 3
+            })
+            .then(null, function(x) {
+                log('reject ' + x); // 3
+                return x + 1; // 4
+            })
+            .then(null, function(x) {
+
+                // you can throw an error but you have to catch it
+                // otherwise execution will be halted.
+                try {
+                    throw new Error('Error');
+                }
+                catch (e) {
+                    log(e);
+                };
+
+                return x + 1; // 5
+            })
+            .then(null, function(x) {
+                log(x); // 5
+            });
+    dfd.reject(1);
+
+    // Thrown errors are not propogated by .then()
+    dfd = $.Deferred();
+
+
+    dfd
+            .then(null, function(x) {
+
+                // propogate rejected value and modify it
+                return x + 1; // 2
+            })
+            .then(null, function(x) {
+                return x + 1; // 3
+            })
+            .then(null, function(x) {
+                return x + 1; // 4
+            })
+
+            .then(null, function(x) {
+
+                // we need to handle the error to allow
+                // jquery promises to keep progressing
+                try {
+                    throw new Error('Error');
+                }
+                catch (e) {
+
+                    // Handle the rejection, and don't propagate.
+                    // return a new promise which we can reject or resolve
+                    // If we wanted to, we could even pass the error
+                    // as the promise value.
+                    return handleError(e, 'resolve', x + 1);
+                };
+
+            })
+            .then(function(x) {
+                log(x); // 5
+            });
+
+    dfd.reject(1);
+
+    function handleError(error, resolveOrReject, propagatedValue) {
+
+        return $.Deferred(function (newDefer) {
+            return newDefer[resolveOrReject](propagatedValue);
+        });
+    };
+
+    // If a handler throws an exception, execution will halt.
+    dfd = $.Deferred();
+
+    function log(msg) {
+        var p = document.createElement('p');
+        p.innerHTML = msg;
+        document.body.appendChild(p);
+    }
+</script>
+</body>
+</html>

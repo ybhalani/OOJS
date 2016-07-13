@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        #divId{
+            border: 1px solid violet;
+            height: 30px;
+        }
+        .newClass{
+            color: #0066CC;
+            background-color: plum;
+            border: 5px solid black;
+        }
+         .inputForm{
+            margin-left: 20px;
+        }
+        #out{
+            border: 1px solid black;
+            width: 800px;
+            height: 400px;
+            text-align: center;
+            padding-top: 40px;
+            padding-left: 15px;
+        }
+        #in{
+            border: 1px solid red;
+            width: 250px;
+            height: 80px;
+            margin-left: 210px;
+            margin-top: 130px;
+            text-align: center;
+            padding-top: 40px;
+            padding-left: 15px;
+        }
+
+
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="Resources/Scripts/jQueryMarch1.js"></script>
+</head>
+<body>
+<h1>jQuery Selectors</h1>
+<h3>Element Selector</h3>
+<p>This is a jQuery File</p>
+<button type="button" id="btni">Click</button>
+<h3>Id Selector</h3>
+<p id="pId">This Text Will Change</p>
+<input type="button" id="btn2" value="Click Here">
+<h3>$This Selector</h3>
+<p>This is a $this Selector.</p>
+<input type="button" id="btn3" value="Click Here">
+<table border="1">
+    <tr>
+        <th>Employee</th>
+        <th>Salery</th>
+    </tr>
+    <tr>
+        <td>Abc</td>
+        <td>5434</td>
+    </tr>
+    <tr>
+        <td>Dgh</td>
+        <td>76544</td>
+    </tr>
+    <tr>
+        <td>Hgffd</td>
+        <td>87665</td>
+    </tr>
+    <tr>
+        <td>Hkkaa</td>
+        <td>9828</td>
+    </tr>
+    <tr>
+        <td>Lakjz</td>
+        <td>99822</td>
+    </tr>
+</table>
+<h1>Event Methods</h1>
+<div id="divId"></div>
+<h1>Dom Manipulation</h1>
+<p id="para1">This Paragraph value will be used in text() method</p>
+<p id="para2">This Paragraph value<span>will be used in html()</span> method</p>
+<input type = "text" id="input3" value="Paragraph Value">
+<button id="inputBtn">Click</button>
+<h1>Get Attribute</h1>
+<p><a href="https://www.google.com/" id="linkId">Google Link</a></p>
+</p><a href="http://www.cnn.com/" id="newsId">News Link</a></p>
+<h1>Set Attribute </h1>
+<h3 id="head1">This Is a Heading And will be Set as A button</h3>
+<button id="html">Set The Html Heading</button>
+<p id="para0"> This is Paragraph And Value will be set on click</p>
+<button id="text">Set The text value</button>
+<p><input type="text" id="inputText" value="Input Value"> </p>
+<button id="btnInput">Click to Change Input val</button><br><br>
+
+<button class="someClass">Click</button><button class="someClass">Click</button><button class="someClass">Click</button><br><br>
+<button id="btnclassId">Click to Add Class</button>
+<br>
+<h1>DOM Traversing</h1>
+<ul class="mainClass" id="mainClassId">
+    <li class="listClass">List One</li>
+    <li class="listClass">List Two</li>
+    <li class="listClass">List Three</li>
+</ul>
+<button id="classBtnId">Click to get The Parent Class</button>
+<button id="classBtnId2">Click to get The Children</button>
+<button id="classBtnId3">Click to get The Siblings</button>
+<h3> Append.prepend</h3>
+<button id="apTxt">Append Text In Div</button><button id="ppTxt">Prepend Text In Div</button><button id="afTxt">After Text In Div</button><button id="bfTxt">Before Text In Div</button><br><br>
+<div id="out">Outer Div
+<div id="in">Inner Div</div></div>
+<br>
+<div style="width: 200px;height: 200px;border: 1px solid indianred" id="appendDiv"></div>
+<ul id="listIds">
+    <li class=listids">Monday</li>
+    <li class=listids">Tuesday</li>
+    <li class=listids">Wedenesday</li>
+</ul>
+<button id="apndListId1">Append </button>
+<button id="apndListId2">Append To</button>
+<button id="prpdListId1">Prepend</button>
+<button id="prpdListId2">Prepend To</button>
+<button id="emptListId">Empty</button>
+<p>Read Only Form</p>
+<form id="formId">
+    <p>First Name<input type="text" class="inputForm"></p>
+    <p>Last Name<input type="text" class="inputForm"></p>
+    <p>Phone Number<input type="number" class="inputForm"></p>
+    <p>Email<input type="email" class="inputForm"></p>
+    <p>Zip Code<input type="number" class="inputForm"></p>
+    <button type="button" id="formBtnSub">Click To Read Only</button>
+</form>
+<h3>CheckBox Form</h3>
+
+<form>
+    <input type="checkbox" name="check1" value="html"> Html
+    <input type="checkbox" name="check2" value="css"> Css
+    <input type="checkbox" name="check3" value="js"> JavaScript
+    <input type="checkbox" name="check4" value="angular"> Angular
+    <input type="checkbox" name="check5" value="jquery"> Jquery
+    <input type="checkbox" name="check6" value="node"> Node.js
+    <input type="checkbox" name="check7" value="bootstrap">Bootstrap
+    <input type="checkbox" name="check8" value="c++"> C++
+    <input type="checkbox" name="check9" value="php">PhP
+    <input type="checkbox" name="check10" value="java">Java
+<button type="button" id="checkSub1">Check All</button>
+    <button type="button" id="checkSub2">UnCheck All</button>
+
+</form>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

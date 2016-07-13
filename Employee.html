@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Demo</title>
+    <style>
+
+        body{
+           /* #252839  #c7a693background: #67BB6A-webkit-linear-gradient#b5b5b7(top, rgb(144, 87, 219));*/
+            background-color:#252839 ;
+            background-image: url("http://www.noupe.com/wp-content/uploads/2009/10/squidfingers.jpg");
+            color: dark black;
+            font-size: 20px;
+        }
+        .emp1{
+            margin-left: 20px;
+        }
+        .emp2{
+            margin-left: 25px;
+
+        }
+        .emp3{
+            margin-left: 20px;
+        }
+        .emp1 div{
+            text-align: center;
+            padding-top: 10px;
+            font-size: 20px;
+            text-shadow: 3px 3px 3px #4D008F;
+            background-color:#607D8D;
+            display:inline-block;
+            width: 280px;
+            height: 190px;
+            border: 1px solid silver;
+            margin: 10px;
+            border-radius:20px 20px 20px 20px ;
+            box-shadow: -5px -5px  5px grey ;
+        }
+        .emp2 div{
+            text-align: center;
+            padding-top: 10px;
+            font-size: 20px;
+            text-shadow: 3px 3px 3px #4D008F;
+            display:inline-block;
+            background-image: url("http://wallpaperlayer.com/img/2015/7/thumb/plain-gray-wallpaper-2872-3065-hd-wallpapers-thumb.jpg");
+            width: 340px;
+            height: 190px;
+            border: 1px solid silver;
+          margin: 30px;
+         border-radius: 30px 30px 30px 30px ;
+            box-shadow: -5px -6px 5px grey;
+        }
+        .emp3 div{
+            text-align: center;
+            padding-top: 10px;
+            font-size: 20px;
+            text-shadow: 3px 3px 3px #4D008F;
+            display: inline-block;
+            background-image: url("http://hdwallpaperspretty.com/wp-content/gallery/plain-light-blue-wallpaper/plain-light-color-desktop-background.jpg");
+            width: 280px;
+            height: 190px;
+            border: 1px solid silver;
+            margin: 10px;
+            border-radius: 20px 20px 20px 20px ;
+            box-shadow: -5px -5px  5px grey
+        }
+        .la input{
+            width: 200px;
+            margin-left:5px;
+            size: 80px;
+        }
+        .la label{
+            margin-left: 40px;
+            font-size: 20px;
+        }
+        .sa button{
+            width: 30px;
+            height: 30px;
+            float: right;
+            position: fixed;
+            top: 0px;
+            right: 0px;
+
+        }
+        #btnId{
+            border: 5px solid black;
+            border-radius:45px 45px 45px 45px;
+            text-align: center;
+            font-style:inherit;
+            font-size: medium;
+        }
+.la {
+    display: inline-block;
+}
+    </style>
+</head>
+<body>
+<div class="la"> <label>Location Name</label><input type="search" width="40px" >
+    <label>Calender</label><input type="date" ></div>
+</div>
+
+<div class="sa"><button title="Priority Mail" type="button" id="btnId">&#9754;;</button> </div>
+
+<div class="emp1">
+    <div>Cycle Count To Be Approved</div>
+    <div>Cycle Count To Be Completed</div>
+    <div>Shipmant To Be Received</div>
+    <div>WorkTickets For Job Scheduled</div>
+</div>
+<div class="emp2">
+    <div>WorkTickets For Return To Vendor</div>
+    <div>WorkTickets For Shipments</div>
+    <div>WorkTickets To Be assigned</div>
+</div>
+<div class="emp3">
+    <div>WorkTickets To Be Issued</div>
+    <div>WorkTickets To Be Picked</div>
+    <div>WorkTickets To Be PutAway</div>
+    <div>WPOs To Be Received</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            background: #FEF2D8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .background {
+            position: relative;
+            margin: 50px auto;
+            width: 550px;
+            height: 400px;
+        }
+        .house {
+            position: absolute;
+            top: 140px;
+            left: 230px;
+            width: 95px;
+            height: 70px;
+            border-radius: 100%;
+            background: #fff;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            border-top: 0;
+            box-sizing: border-box;
+            opacity: .4;
+        }
+        .mouse {
+            position: absolute;
+            top: 120px;
+            left: 240px;
+        }
+        .head {
+            position: absolute;
+            top: 5px;
+            left: 15px;
+            width: 85px;
+            height: 85px;
+            border-radius: 100%;
+            background: #ffe2a6;
+            animation: own 2s infinite alternate ease-in-out;
+        }
+        .ear-1 {
+            position: absolute;
+            top: -5px;
+            left: -15px;
+            width: 45px;
+            height: 45px;
+            background: #ffe2a6;
+            border-radius: 50%;
+            animation: up .4s infinite;
+        }
+        .ear-2{
+            position: absolute;
+            top: -5px;
+            left: 52px;
+            width: 45px;
+            height: 45px;
+            background: #ffe2a6;
+            border-radius: 50%;
+            animation: up .4s infinite;
+        }
+        .mustache-1 {
+            position: absolute;
+            top: 2px;
+            left: -60px;
+            width: 110px;
+            height: 40px;
+            border-bottom-right-radius: 30px;
+            border-right: 2px solid #666;
+            border-top: 0;
+            box-sizing: border-box;
+            transform: rotate(60deg);
+            animation: upp .4s infinite;
+        }
+        .mustache-2 {
+            position: absolute;
+            top: 10px;
+            left: 40px;
+            width: 90px;
+            height: 40px;
+            border-bottom-left-radius: 30px;
+            border-left: 2px solid #666;
+            border-top: 0;
+            box-sizing: border-box;
+            transform: rotate(-60deg);
+            animation: uppp .4s infinite;
+        }
+        .eye-1{
+            position: absolute;
+            top: 32px;
+            left: 27px;
+            width: 7px;
+            height: 7px;
+            background: #333;
+            border-radius: 50%;
+            animation: blink 1s infinite alternate ease-in-out;
+        }
+        .eye-2 {
+            position: absolute;
+            top: 32px;
+            left: 50px;
+            width: 7px;
+            height: 7px;
+            background: #333;
+            border-radius: 50%;
+            animation: blink 1s infinite alternate ease-in-out;
+        }
+
+        .nose {
+            position: absolute;
+            top: 50px;
+            left: 38px;
+            width: 12px;
+            height: 10px;
+            background: #333;
+            border-radius: 50%;
+            animation: up .4s infinite;
+        }
+
+        .mouth {
+            position: absolute;
+            top: 55px;
+            left: 32px;
+            animation: up .3s infinite;
+        }
+        .mouth::after {
+            position: absolute;
+            top: 5px;
+            left: 2px;
+            width: 10px;
+            height: 9px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border: 1px solid #fff;
+            background: #fff;
+            border-top: 0;
+            box-sizing: border-box;
+            content: "";
+        }
+        .mouth::before {
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            width: 10px;
+            height: 13px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border: 1px solid #fff;
+            background: #fff;
+            border-top: 0;
+            box-sizing: border-box;
+            content: "";
+        }
+
+        @keyframes blink {
+            0%  {background-color: #333}
+            25% {background-color: #333}
+            50% {background-color: #333}
+            75% {background-color: #333}
+            100% {background-color: #ffe2a6}
+        }
+
+        @keyframes own {
+            100% {transform: rotate(-15deg)}
+        }
+
+        @keyframes up {
+            0% {transform: translateY(0px)}
+            25% {transform: translateY(-2px)}
+            50% {transform: translateY(0px)}
+            75% {transform: translateY(-2px)}
+            100% {transform: translateY(0px)}
+        }
+
+        @keyframes upp {
+            0% {transform: rotate(0px)}
+            25% {transform: rotate(50deg)}
+            50% {transform: rotate(0px)}
+            75% {transform: rotate(50deg)}
+            100% {transform: rotate(0px)}
+        }
+
+        @keyframes uppp {
+            0% {transform: rotate(0px)}
+            25% {transform: rotate(-50deg)}
+            50% {transform: rotate(0px)}
+            75% {transform: rotate(-50deg)}
+            100% {transform: rotate(0px)}
+        }
+    </style>
+</head>
+<body>
+<div class="background">
+    <div class="house"></div>
+    <div class="mouse">
+        <div class="head">
+            <div class="ear-1"></div>
+            <div class="ear-2"></div>
+            <div class="eye-1"></div>
+            <div class="eye-2"></div>
+            <div class="mouth"></div>
+            <div class="mustache-1"></div>
+            <div class="mustache-2"></div>
+            <div class="nose"></div>
+        </div>
+    </div>
+</div>
+<script>
+
+</script>
+</body>
+</html>

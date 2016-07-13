@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var lineBreak = "<br>";
+    var myColor = ["Red","Green","White","Black"];
+    var nextColor = myColor.join();
+    document.write(" Join method"+ ""+nextColor);
+    document.write(lineBreak);
+    document.write(lineBreak);
+
+
+    var myColor = ["Red","Green","White","Black"];
+    var nextColor = myColor.join('+');
+    document.write(nextColor);
+
+    document.write(lineBreak);
+    document.write(lineBreak);
+
+    var myColor = ["Red","Green","White","Black"];
+    var nextColor = myColor.join('"');
+    document.write(nextColor);
+    document.write(lineBreak);
+    document.write(lineBreak);
+    var myColor = ["Red","Green","White","Black"];
+    var nextColor = myColor.toString('"');
+    document.write(nextColor);
+    document.write(lineBreak);
+    document.write(lineBreak);
+    var techs=['HTML','CSS','JS','JQUERY'];
+    document.write("<div>"+techs+"</div>");
+    document.write("<div>"+techs.splice(3, 0, 'Css3')+"</div>");
+    document.write("<div>"+techs+"<div>");
+    var frmv = ['Angular','React','Node'];
+    var allAr = techs.concat(frmv);
+    document.write("All Arrays "+allAr);
+
+
+
+
+</script>
+</body>
+</html>
